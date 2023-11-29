@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Number Generator</title>
+</head>
+<body>
+
+  <button id="generateNumberButton">Generate Random Number</button>
+  <p id="result"></p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('generateNumberButton').addEventListener('click', function() {
+        // Generate a random number from a normal distribution
+        var average = 10; // Set your desired average
+        var standardDeviation = 2; // Set your desired standard deviation
+        var randomNumber = average + standardDeviation * Math.sqrt(-2 * Math.log(Math.random())) * Math.cos(2 * Math.PI * Math.random());
+
+        // Display the result
+        document.getElementById('result').textContent = 'Generated Number: ' + randomNumber.toFixed(2);
+      });
+    });
+  </script>
+
+</body>
+</html>
