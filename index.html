@@ -22,9 +22,13 @@
   <button id="a_4">a₄</button>
   <button id="a_5">a₅</button>
 
-  <button id="randomButton">Random Number Generator</button>
-
   <p id="info"></p>
+
+  <!-- Description line -->
+  <p>This is a description line or any information you want to display.</p>
+
+  <!-- Random Number Generator button -->
+  <button id="randomButton">Random Number Generator</button>
 
   <script>
     // Define the predefined sequences
@@ -44,7 +48,7 @@
     var sequenceIndices = [0, 0, 0, 0, 0];
 
     // Counter for time
-    var timeCounter = 0;
+    var timeCounter = 1;
 
     document.addEventListener('DOMContentLoaded', function() {
       for (var i = 1; i <= 5; i++) {
@@ -79,9 +83,6 @@
 
         // Increment the random index for the next click
         randomIndex = (randomIndex + 1) % randomSequence.length;
-
-        // Increment the time counter
-        timeCounter++;
       });
 
       // Function to display information
