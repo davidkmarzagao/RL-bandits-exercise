@@ -31,11 +31,11 @@
   <!-- Description line -->
   <p>This is a description line or any information you want to display.</p>
 
-  <!-- Random Number Generator button -->
-  <button id="randomButton">Random Number Generator</button>
-
   <!-- Display area for the generated number -->
   <div id="randomNumberDisplay"></div>
+
+  <!-- Random Number Generator button -->
+  <button id="randomButton">Random Number Generator</button>
 
   <script>
     // Define the predefined sequences
@@ -76,4 +76,28 @@
           sequenceIndices[sequenceIndex] = (sequenceIndices[sequenceIndex] + 1) % predefinedSequence.length;
 
           // Increment the time counter
-          t
+          timeCounter++;
+        });
+      }
+
+      // Handle the click event for the random button
+      document.getElementById('randomButton').addEventListener('click', function() {
+        // Get the number from the random sequence at the current index
+        var currentNumber = randomSequence[randomIndex];
+
+        // Display the generated number below the button
+        document.getElementById('randomNumberDisplay').textContent = 'Generated Number: ' + currentNumber.toFixed(2);
+
+        // Increment the random index for the next click
+        randomIndex = (randomIndex + 1) % randomSequence.length;
+      });
+
+      // Function to display information
+      function displayInfo(time, action, reward) {
+        document.getElementById('info').textContent = 'At time ' + time + ', the chosen action was ' + action + ' with reward ' + reward.toFixed(2);
+      }
+    });
+  </script>
+
+</body>
+</html>
