@@ -24,8 +24,7 @@
 
   <button id="randomButton">Random Number Generator</button>
 
-  <p id="time">Time: 0</p>
-  <p id="result"></p>
+  <p id="info"></p>
 
   <script>
     // Define the predefined sequences
@@ -44,7 +43,7 @@
     // Keep track of the current index for each sequence
     var sequenceIndices = [0, 0, 0, 0, 0];
 
-    // Counter for button presses
+    // Counter for time
     var timeCounter = 0;
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -59,17 +58,14 @@
           // Get the number from the selected sequence at the current index
           var currentNumber = predefinedSequence[sequenceIndices[sequenceIndex]];
 
-          // Display the result
-          document.getElementById('result').textContent = 'Generated Number: ' + currentNumber.toFixed(2);
+          // Display the information
+          displayInfo(timeCounter, 'a_' + (sequenceIndex + 1), currentNumber);
 
           // Increment the sequence index for the next click
           sequenceIndices[sequenceIndex] = (sequenceIndices[sequenceIndex] + 1) % predefinedSequence.length;
 
           // Increment the time counter
           timeCounter++;
-
-          // Display the time counter above the generated number
-          document.getElementById('time').textContent = 'Time: ' + timeCounter;
         });
       }
 
@@ -78,18 +74,20 @@
         // Get the number from the random sequence at the current index
         var currentNumber = randomSequence[randomIndex];
 
-        // Display the result
-        document.getElementById('result').textContent = 'Generated Number: ' + currentNumber.toFixed(2);
+        // Display the information
+        displayInfo(timeCounter, 'Random Number Generator', currentNumber);
 
         // Increment the random index for the next click
         randomIndex = (randomIndex + 1) % randomSequence.length;
 
         // Increment the time counter
         timeCounter++;
-
-        // Display the time counter above the generated number
-        document.getElementById('time').textContent = 'Time: ' + timeCounter;
       });
+
+      // Function to display information
+      function displayInfo(time, action, reward) {
+        document.getElementById('info').textContent = 'At time ' + time + ', the chosen action was ' + action + ' with reward ' + reward.toFixed(2);
+      }
     });
   </script>
 
