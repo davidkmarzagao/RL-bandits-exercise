@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random Number Generator</title>
+  <title>Number Generator from Sequences</title>
 </head>
 <body>
 
@@ -25,6 +25,9 @@
       [9, 3, -1, -3, -17, -8, -5, 13, 5, -21]
     ];
 
+    // Keep track of the current index for each sequence
+    var sequenceIndices = [0, 0, 0, 0, 0];
+
     document.addEventListener('DOMContentLoaded', function() {
       for (var i = 1; i <= 5; i++) {
         document.getElementById('a_' + i).addEventListener('click', function() {
@@ -34,11 +37,14 @@
           // Get the predefined sequence
           var predefinedSequence = sequences[sequenceIndex];
 
-          // Generate a random number from the selected sequence
-          var randomNumber = predefinedSequence[Math.floor(Math.random() * predefinedSequence.length)];
+          // Get the number from the selected sequence at the current index
+          var currentNumber = predefinedSequence[sequenceIndices[sequenceIndex]];
 
           // Display the result
-          document.getElementById('result').textContent = 'Generated Number: ' + randomNumber.toFixed(2);
+          document.getElementById('result').textContent = 'Generated Number: ' + currentNumber.toFixed(2);
+
+          // Increment the sequence index for the next click
+          sequenceIndices[sequenceIndex] = (sequenceIndices[sequenceIndex] + 1) % predefinedSequence.length;
         });
       }
     });
