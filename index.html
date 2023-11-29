@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Number Generator from Sequences</title>
+  <style>
+    #randomButton {
+      background-color: #4CAF50; /* Green color */
+      color: white;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
@@ -12,6 +21,8 @@
   <button id="a_3">a₃</button>
   <button id="a_4">a₄</button>
   <button id="a_5">a₅</button>
+
+  <button id="randomButton">Random Number Generator</button>
 
   <p id="time">Time: 0</p>
   <p id="result"></p>
@@ -25,6 +36,10 @@
       [-6, 14, -1, -9, 6, -11, 1, -17, -12, 1],
       [9, 3, -1, -3, -17, -8, -5, 13, 5, -21]
     ];
+
+    // Define the random sequence
+    var randomSequence = [2, 5, 3, 1, 2, 4, 2, 3, 5, 1, 4, 4, 3, 1];
+    var randomIndex = 0;
 
     // Keep track of the current index for each sequence
     var sequenceIndices = [0, 0, 0, 0, 0];
@@ -57,6 +72,24 @@
           document.getElementById('time').textContent = 'Time: ' + timeCounter;
         });
       }
+
+      // Handle the click event for the random button
+      document.getElementById('randomButton').addEventListener('click', function() {
+        // Get the number from the random sequence at the current index
+        var currentNumber = randomSequence[randomIndex];
+
+        // Display the result
+        document.getElementById('result').textContent = 'Generated Number: ' + currentNumber.toFixed(2);
+
+        // Increment the random index for the next click
+        randomIndex = (randomIndex + 1) % randomSequence.length;
+
+        // Increment the time counter
+        timeCounter++;
+
+        // Display the time counter above the generated number
+        document.getElementById('time').textContent = 'Time: ' + timeCounter;
+      });
     });
   </script>
 
