@@ -7,13 +7,14 @@
 </head>
 <body>
 
-  <button id="a_1"> a1</button>
+  <button id="a_1">Generate from Sequence 1</button>
   <button id="a_2">Generate from Sequence 2</button>
   <button id="a_3">Generate from Sequence 3</button>
   <button id="a_4">Generate from Sequence 4</button>
   <button id="a_5">Generate from Sequence 5</button>
 
   <p id="result"></p>
+  <p id="counter">Button Press Counter: 0</p>
 
   <script>
     // Define the predefined sequences
@@ -27,6 +28,9 @@
 
     // Keep track of the current index for each sequence
     var sequenceIndices = [0, 0, 0, 0, 0];
+
+    // Counter for button presses
+    var buttonPressCounter = 0;
 
     document.addEventListener('DOMContentLoaded', function() {
       for (var i = 1; i <= 5; i++) {
@@ -45,6 +49,12 @@
 
           // Increment the sequence index for the next click
           sequenceIndices[sequenceIndex] = (sequenceIndices[sequenceIndex] + 1) % predefinedSequence.length;
+
+          // Increment the button press counter
+          buttonPressCounter++;
+
+          // Display the button press counter and the action number
+          document.getElementById('counter').textContent = 'Button Press Counter: ' + buttonPressCounter + ' (Action ' + (sequenceIndex + 1) + ')';
         });
       }
     });
