@@ -5,12 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Number Generator from Sequences</title>
   <style>
+    /* Style for the buttons */
+    .sequenceButton {
+      background-color: #ADD8E6; /* Light blue color */
+      color: black;
+      padding: 15px 20px; /* Adjust padding for size */
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px; /* Add margin for spacing */
+    }
+
     #randomButton {
       background-color: #4CAF50; /* Green color */
       color: white;
-      padding: 10px 15px;
+      padding: 15px 20px; /* Adjust padding for size */
       font-size: 16px;
       cursor: pointer;
+      margin-top: 10px; /* Add margin for spacing */
     }
 
     #randomNumberDisplay {
@@ -20,11 +31,12 @@
 </head>
 <body>
 
-  <button id="a_1">a₁</button>
-  <button id="a_2">a₂</button>
-  <button id="a_3">a₃</button>
-  <button id="a_4">a₄</button>
-  <button id="a_5">a₅</button>
+  <!-- Buttons with the class 'sequenceButton' -->
+  <button id="a_1" class="sequenceButton">a₁</button>
+  <button id="a_2" class="sequenceButton">a₂</button>
+  <button id="a_3" class="sequenceButton">a₃</button>
+  <button id="a_4" class="sequenceButton">a₄</button>
+  <button id="a_5" class="sequenceButton">a₅</button>
 
   <p id="info"></p>
 
